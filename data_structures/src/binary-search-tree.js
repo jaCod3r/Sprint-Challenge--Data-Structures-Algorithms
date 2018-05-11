@@ -1,6 +1,15 @@
-const checkBalanced = (rootNode) => {
+const checkBalanced = rootNode => {
   /* Your code here */
-
+  if (rootNode === null) {
+    // Base case
+    return true;
+  }
+  var heightDifference = Math.abs(Util.getHeight(rootNode.left) - Util.getHeight(rootNode.right));
+  if (heightDifference > 1) {
+    return false;
+  } else {
+    return Util.isBalanced(rootNode.left) && Util.isBalanced(rootNode.right);
+  }
 };
 
 class BinarySearchTree {
@@ -73,5 +82,5 @@ class BinarySearchTree {
 
 module.exports = {
   BinarySearchTree,
-  checkBalanced,
+  checkBalanced
 };
